@@ -15,27 +15,20 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/fonts/css/font-awesome.min.css">
 </head>
 
-<body class="login">
-	<div class="login_wrapper">
-		<div class="form login_form">
-			<section class="login_content">
-				<?php echo validation_errors(); ?>
-				<p style="color: red;"><?php echo $this->session->flashdata('notifikasi_login'); ?></p>
-				<?php echo form_open('controller_login/cek_login'); ?>
-					<h1>Login LBU</h1>
-					<div>
-						<input type="text" name="username" placeholder="Username" class="form-control" required />
+<body class="nav-md footer_fixed">
+	<div class="container body">
+		<div class="main_container">
+			<!-- 404 Content -->
+			<div class="col-md-12">
+				<div class="col-middle">
+					<div class="text-center text-center">
+						<h1 class="error-number">404</h1>
+						<h2>Sorry but we couldn't find this page</h2>
+						<p>This page you are looking for does not exist.</p>
 					</div>
-					<div>
-						<input type="password" name="password" placeholder="Password" class="form-control" required />
-					</div>
-					<div>
-						<button type="submit" name="login" class="btn btn-success form-control">Login</button>
-					</div>
-
-					<div class="clearfix"></div>
-				</form>
-			</section>
+				</div>
+			</div>
+			<!-- /404 Content -->
 		</div>
 	</div>
 
