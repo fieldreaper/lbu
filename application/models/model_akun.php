@@ -10,7 +10,7 @@ class Model_Akun extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('akun');
 		$this->db->where('username', $username);
-		$this->db->where('password', md5($password));
+		$this->db->where('password', $password);
 
 		return $this->db->get();
 	}

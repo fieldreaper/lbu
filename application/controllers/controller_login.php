@@ -12,15 +12,10 @@ class Controller_Login extends CI_Controller {
 
 	public function index() {
 		$logged_in = $this->session->userdata('logged_in');
-		$role = $this->session->userdata('role');
 		if(!$logged_in) {
 			$this->load->view('view_login');
 		} else {
-			if($role == "Manager") {
-				redirect(site_url('controller_manager'));
-			} else if ($role == "Operator") {
-				redirect(site_url('operator'));
-			}
+			redirect(site_url('controller_manager'));
 		}
 	}
 
@@ -48,11 +43,11 @@ class Controller_Login extends CI_Controller {
 				if($akun->role == "Manager") {
 					redirect(site_url('controller_manager'));
 				} else {
-					redirect(site_url('operator'));
+					$this->session->set_flashdata('notifikasi_login', 'Username atau Password salah');
+					redirect(site_url('controller_login'));
 				}
 			} else {
 				$this->session->set_flashdata('notifikasi_login', 'Username atau Password salah');
-
 				redirect(site_url('controller_login'));
 			}
 		}

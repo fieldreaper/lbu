@@ -20,9 +20,9 @@
 		<div class="form login_form">
 			<section class="login_content">
 				<?php echo validation_errors(); ?>
-				<p style="color: red;"><?php echo $this->session->flashdata('notifikasi_login'); ?></p>
 				<?php echo form_open('controller_login/cek_login'); ?>
 					<h1>Login LBU</h1>
+					<p style="color: red;"><?php echo $this->session->flashdata('notifikasi_login'); ?></p>
 					<div>
 						<input type="text" name="username" placeholder="Username" class="form-control" required />
 					</div>
