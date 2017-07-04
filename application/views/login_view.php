@@ -20,7 +20,7 @@
 		<div class="form login_form">
 			<section class="login_content">
 				<?php echo validation_errors(); ?>
-				<?php echo form_open('controller_login/cek_login'); ?>
+				<?php echo form_open('login/cek_login'); ?>
 					<h1>Login LBU</h1>
 					<p style="color: red;"><?php echo $this->session->flashdata('notifikasi_login'); ?></p>
 					<div>

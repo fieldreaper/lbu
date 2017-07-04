@@ -22,7 +22,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="<?php echo site_url('controller_beranda'); ?>" class="site_title">LBU</a>
+						<a href="<?php echo site_url('beranda'); ?>" class="site_title">LBU</a>
 					</div>
 					<div class="clearfix"></div>
 					<br>
@@ -31,10 +31,10 @@
 							<h3>Menu</h3>
 							<ul class="nav side-menu">
 								<li>
-									<a href="<?php echo site_url('controller_beranda'); ?>" class="site_title"><i class="fa fa-home"></i> Beranda</a>
+									<a href="<?php echo site_url('beranda'); ?>"><i class="fa fa-home"></i> Beranda</a>
 								</li>
 								<li>
-									<a href="<?php echo site_url('controller_login/logout'); ?>" class="site_title"><i class="fa fa-sign-out"></i> Keluar</a>
+									<a href="<?php echo site_url('login/logout'); ?>"><i class="fa fa-sign-out"></i> Keluar</a>
 								</li>
 							</ul>
 						</div>
@@ -52,7 +52,7 @@
 
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								Manager <?php echo $this->session->userdata('kode_bank'); ?>
+								<h5>Manager <?php echo $this->session->userdata('kode_bank'); ?></h5>
 							</li>
 						</ul>
 					</nav>
@@ -78,8 +78,8 @@
 												echo "Laporan bulan $month";
 											?>
 										</h3>
-										<a href="<?php echo site_url('manager/detail_laporan/' .$laporan->id); ?>">Detail</a>
-										<a href="<?php echo site_url('manager/delete_laporan/' .$laporan->id); ?>">Delete</a><br>
+										<a href="<?php echo site_url('beranda/detail_laporan/' .$laporan->id); ?>">Detail</a>
+										<a href="<?php echo site_url('beranda/delete_laporan/' .$laporan->id); ?>">Delete</a><br>
 									</fieldset><br>
 									<?php } ?>
 								</div>
