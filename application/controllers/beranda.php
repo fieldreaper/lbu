@@ -15,12 +15,13 @@ class Beranda extends CI_Controller {
 	}
 
 	public function delete_laporan($id) {
-		$this->m_laporan->delete_laporan($id);
+		$this->laporan_model->delete_laporan($id);
 		redirect(site_url('beranda'));
 	}
 
 	public function detail_laporan($id) {
-		redirect(site_url('beranda/detail/id=' .$id));
+		$data['id_laporan'] = $id;
+		$this->load->view('detail_view', $data);
 	}
 }
 

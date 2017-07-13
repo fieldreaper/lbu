@@ -66,60 +66,11 @@
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Overview Laporan</h2>
+									<h2>Detail Laporan</h2>
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
-									<?php
-										if(count($daftar_laporan) <= 0) {
-											echo "Belum ada laporan";
-										} else {
-									?>
-											<table class="table table-striped projects">
-												<thead>
-													<tr>
-														<th style="width: 1%">#</th>
-														<th style="width: 20%">Nama Laporan</th>
-														<th>Persentase Laporan</th>
-														<th>Status</th>
-														<th style="width: 20%">Aksi</th>
-													</tr>
-												</thead>
-												<tbody>
-									<?php
-												$no = 0;
-												foreach($daftar_laporan as $laporan) {
-									?>
-													<tr>
-														<td><?php echo ++$no; ?></td>
-														<td>
-															<?php
-																$month = date('F', strtotime($laporan->tanggal_pembuatan));
-																echo "Laporan bulan $month";
-															?>
-														</td>
-														<td class="project_progress">
-															<div class="progress progress_sm">
-																<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php echo $no*10; ?>"></div>
-															</div>
-															<small><?php echo $no*10; ?> Complete</small>
-														</td>
-														<td>
-															<button type="button" class="btn btn-success btn-xs">Success</button>
-														</td>
-														<td>
-															<a href="<?php echo site_url('beranda/detail_laporan/' .$laporan->id); ?>" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Detail </a>
-															<a href="<?php echo site_url('beranda/delete_laporan/' .$laporan->id); ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
-														</td>
-													</tr>
-									<?php
-												}
-									?>
-												</tbody>
-											</table>
-									<?php
-										}
-									?>
+									<?php echo $id_laporan; ?>
 								</div>
 							</div>
 						</div>
