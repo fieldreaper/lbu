@@ -88,16 +88,12 @@
 												<tbody>
 									<?php
 												$no = 0;
+												$bulan = array("1"=>"Januari", "2"=>"Februari", "3"=>"Maret", "4"=>"April", "5"=>"Mei", "6"=>"Juni", "7"=>"Juli", "8"=>"Agustus", "9"=>"September", "10"=>"Oktober", "11"=>"November", "12"=>"Desember");
 												foreach($daftar_laporan as $laporan) {
 									?>
 													<tr>
 														<td><?php echo ++$no; ?></td>
-														<td>
-															<?php
-																$month = date('F', strtotime($laporan->tanggal_pembuatan));
-																echo "Laporan bulan $month";
-															?>
-														</td>
+														<td><?php echo $bulan[$laporan->bulan_laporan]." ".$laporan->tahun_laporan; ?></td>
 														<td class="project_progress">
 															<div class="progress progress_sm">
 																<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php echo $no*10; ?>"></div>

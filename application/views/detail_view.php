@@ -70,7 +70,77 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
-									<?php echo $id_laporan; ?>
+									<?php
+										if(count($form13) == 0 && count($form19) == 0) {
+											echo "Belum ada form yang dibuat";
+										} else {
+									?>
+											<table class="table table-striped projects">
+												<thead>
+													<tr>
+														<th style="width: 50%">Nama Form</th>
+														<th>Status</th>
+														<th>Aksi</th>
+													</tr>
+												</thead>
+												<tbody>
+									<?php
+												if(count($form13) > 0) {
+									?>
+													<tr>
+														<td>Form 13 - LOL</td>
+														<td>
+														<?php
+															if($form13->disetujui == FALSE) {
+														?>
+																<button type="button" class="btn btn-warning btn-xs">Belum disetujui</button>
+														<?php
+															} else {
+														?>
+																<button type="button" class="btn btn-success btn-xs">Sudah disetujui</button>
+														<?php
+															}
+														?>
+														</td>
+														<td>
+															<a href="" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Lihat </a>
+															<a href="" class="btn btn-warning btn-xs"><i class="fa fa-eye"></i> Ubah Status </a>
+															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+														</td>
+													</tr>
+									<?php
+												}
+												if(count($form19) > 0) {
+									?>
+													<tr>
+														<td>Form 19 - GGWP</td>
+														<td>
+														<?php
+															if($form19->disetujui == FALSE) {
+														?>
+																<button type="button" class="btn btn-warning btn-xs">Belum disetujui</button>
+														<?php
+															} else {
+														?>
+																<button type="button" class="btn btn-success btn-xs">Sudah disetujui</button>
+														<?php
+															}
+														?>
+														</td>
+														<td>
+															<a href="" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Lihat </a>
+															<a href="" class="btn btn-warning btn-xs"><i class="fa fa-eye"></i> Ubah Status </a>
+															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+														</td>
+													</tr>
+									<?php
+												}
+									?>
+												</tbody>
+											</table>
+									<?php
+										}
+									?>
 								</div>
 							</div>
 						</div>

@@ -11,6 +11,8 @@ class Laporan_model extends CI_Model {
 		$this->db->from('laporan');
 		$this->db->where('kode_bank', $kode_bank);
 		$this->db->where('deleted', FALSE);
+		$this->db->order_by("tahun_laporan", "asc");
+		$this->db->order_by("bulan_laporan", "asc");
 
 		return $this->db->get();
 	}
@@ -23,10 +25,10 @@ class Laporan_model extends CI_Model {
 		return $this->db->get();
 	}
 
-	function update_laporan($id, $data) {
+	/*function update_laporan($id, $data) {
 		$this->db->where('id', $id);
 		$this->db->update('laporan', $data);
-	}
+	}*/
 
 	function delete_laporan($id) {
 		$deleted = array('deleted'=>TRUE);
@@ -34,7 +36,7 @@ class Laporan_model extends CI_Model {
 		$this->db->update('laporan', $deleted);
 	}
 
-	function select_all_paging($limit = array()) {
+	/*function select_all_paging($limit = array()) {
 		$this->db->select('*');
 		$this->db->from('laporan');
 		$this->db->where('kode_bank', $kode_bank);
@@ -44,7 +46,7 @@ class Laporan_model extends CI_Model {
 		}
 
 		return $this->db->get();
-	}
+	}*/
 }
 
 ?>

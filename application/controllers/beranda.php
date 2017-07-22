@@ -6,6 +6,7 @@ class Beranda extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('laporan_model');
+		$this->load->model('form_model');
 	}
 
 	public function index() {
@@ -20,7 +21,8 @@ class Beranda extends CI_Controller {
 	}
 
 	public function detail_laporan($id) {
-		$data['id_laporan'] = $id;
+		$data['form13'] = $this->form_model->select_all_form13($id)->row();
+		$data['form19'] = $this->form_model->select_all_form19($id)->row();
 		$this->load->view('detail_view', $data);
 	}
 }
