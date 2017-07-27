@@ -95,13 +95,26 @@
 														<td><?php echo ++$no; ?></td>
 														<td><?php echo $bulan[$laporan->bulan_laporan]." ".$laporan->tahun_laporan; ?></td>
 														<td class="project_progress">
+															<?php
+																$persentase = $laporan->persentase/4*100;
+															?>
 															<div class="progress progress_sm">
-																<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php echo $no*10; ?>"></div>
+																<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php echo $persentase; ?>"></div>
 															</div>
-															<small><?php echo $no*10; ?> Complete</small>
+															<small><?php echo $persentase."%"; ?> Complete</small>
 														</td>
 														<td>
-															<button type="button" class="btn btn-success btn-xs">Success</button>
+															<?php
+																if($persentase == 100) {
+															?>
+																	<button type="button" class="btn btn-success btn-xs">Selesai</button>
+															<?php
+																} else {
+															?>
+																	<button type="button" class="btn btn-warning btn-xs">Belum selesai</button>
+															<?php
+																}
+															?>
 														</td>
 														<td>
 															<a href="<?php echo site_url('beranda/detail_laporan/' .$laporan->id); ?>" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Detail </a>

@@ -25,10 +25,11 @@ class Laporan_model extends CI_Model {
 		return $this->db->get();
 	}
 
-	/*function update_laporan($id, $data) {
+	function tambah_persentase($id) {
+		$this->db->set('persentase', 'persentase+1', FALSE);
 		$this->db->where('id', $id);
-		$this->db->update('laporan', $data);
-	}*/
+		$this->db->update('laporan');
+	}
 
 	function delete_laporan($id) {
 		$deleted = array('deleted'=>TRUE);

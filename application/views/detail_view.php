@@ -103,9 +103,48 @@
 														?>
 														</td>
 														<td>
-															<a href="" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Lihat </a>
-															<a href="" class="btn btn-warning btn-xs"><i class="fa fa-eye"></i> Ubah Status </a>
+															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form13"><i class="fa fa-eye"></i> Lihat </button>
 															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+
+															<div id="form13" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+																<div class="modal-dialog modal-lg">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+																			<h4 class="modal-title">FORM 13 - LOL</h4>
+																		</div>
+																		<div class="modal-body">
+																			<table class="table table-striped">
+																				<tbody>
+																					<tr>
+																						<th scope="row">Jenis Penyediaan Dana</th>
+																						<td><?php echo $form13->jenis_penyediaan_dana; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jenis Valuta</th>
+																						<td><?php echo $form13->jenis_valuta; ?></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																		<form action="<?php echo site_url('beranda/validasi_form'); ?>" method="post">
+																			<input type="hidden" name="id" value="<?php echo $form13->id; ?>">
+																			<input type="hidden" name="laporan_id" value="<?php echo $laporan_id; ?>">
+																			<input type="hidden" name="form_num" value="13">
+																			<div class="modal-footer">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+																				<?php
+																					if(!$form13->disetujui) {
+																				?>
+																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					}
+																				?>
+																			</div>
+																		</form>
+																	</div>
+																</div>
+															</div>
 														</td>
 													</tr>
 									<?php
@@ -128,9 +167,48 @@
 														?>
 														</td>
 														<td>
-															<a href="" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Lihat </a>
-															<a href="" class="btn btn-warning btn-xs"><i class="fa fa-eye"></i> Ubah Status </a>
+															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form19"><i class="fa fa-eye"></i> Lihat </button>
 															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+
+															<div id="form19" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+																<div class="modal-dialog modal-lg">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+																			<h4 class="modal-title">FORM 19 - GGWP</h4>
+																		</div>
+																		<div class="modal-body">
+																			<table class="table table-striped">
+																				<tbody>
+																					<tr>
+																						<th scope="row">Jenis Penyediaan Dana</th>
+																						<td><?php echo $form19->jenis; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jenis Valuta</th>
+																						<td><?php echo $form19->jenis_valuta; ?></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																		<form action="<?php echo site_url('beranda/validasi_form'); ?>" method="post">
+																			<input type="hidden" name="id" value="<?php echo $form19->id; ?>">
+																			<input type="hidden" name="laporan_id" value="<?php echo $laporan_id; ?>">
+																			<input type="hidden" name="form_num" value="19">
+																			<div class="modal-footer">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+																				<?php
+																					if(!$form19->disetujui) {
+																				?>
+																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					}
+																				?>
+																			</div>
+																		</form>
+																	</div>
+																</div>
+															</div>
 														</td>
 													</tr>
 									<?php

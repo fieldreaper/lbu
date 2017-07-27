@@ -23,12 +23,19 @@ class Form_model extends CI_Model {
 		return $this->db->get();
 	}
 
-	/*function update_form($id, $data) {
+	function validasi_form13($id) {
+		$disetujui = array('disetujui'=>TRUE);
 		$this->db->where('id', $id);
-		$this->db->update('laporan', $data);
+		$this->db->update('form13', $disetujui);
 	}
 
-	function delete_form($id) {
+	function validasi_form19($id) {
+		$disetujui = array('disetujui'=>TRUE);
+		$this->db->where('id', $id);
+		$this->db->update('form19', $disetujui);
+	}
+
+	/*function delete_form($id) {
 		$deleted = array('deleted'=>TRUE);
 		$this->db->where('id', $id);
 		$this->db->update('laporan', $deleted);
