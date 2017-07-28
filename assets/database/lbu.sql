@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2017 at 12:30 PM
+-- Generation Time: Jul 28, 2017 at 01:52 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -76,7 +76,7 @@ CREATE TABLE `form13` (
   `jenis_penyediaan_dana` varchar(100) NOT NULL,
   `jenis_valuta` varchar(12) NOT NULL,
   `nilai_agunan` int(12) NOT NULL,
-  `cadangan_kerugian_individial` int(12) NOT NULL,
+  `cadangan_kerugian_individual` int(12) NOT NULL,
   `cadangan_kerugian_kolektif` int(12) NOT NULL,
   `disetujui` tinyint(1) NOT NULL DEFAULT '0',
   `id_laporan` int(11) NOT NULL
@@ -86,9 +86,9 @@ CREATE TABLE `form13` (
 -- Dumping data for table `form13`
 --
 
-INSERT INTO `form13` (`id`, `jenis_penyediaan_dana`, `jenis_valuta`, `nilai_agunan`, `cadangan_kerugian_individial`, `cadangan_kerugian_kolektif`, `disetujui`, `id_laporan`) VALUES
-(1, 'asd', 'asd', 1, 1, 1, 0, 2),
-(2, 'qwe', 'qwe', 2, 2, 2, 1, 1);
+INSERT INTO `form13` (`id`, `jenis_penyediaan_dana`, `jenis_valuta`, `nilai_agunan`, `cadangan_kerugian_individual`, `cadangan_kerugian_kolektif`, `disetujui`, `id_laporan`) VALUES
+(1, 'Penempatan pada bank lain', 'Rupiah', 500000000, 250000000, 400000000, 1, 2),
+(2, 'Surat Berharga', 'Rupiah', 375000000, 100000000, 250000000, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ CREATE TABLE `form19` (
 --
 
 INSERT INTO `form19` (`id`, `jenis`, `jenis_valuta`, `jumlah_perolehan`, `disetujui`, `id_laporan`) VALUES
-(1, 'zxc', 'zxc', 3, 1, 2);
+(1, 'Giro', 'Rupiah', 1250000000, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -122,6 +122,7 @@ CREATE TABLE `laporan` (
   `id` int(11) NOT NULL,
   `tahun_laporan` int(4) NOT NULL,
   `bulan_laporan` int(2) NOT NULL,
+  `persentase` int(2) NOT NULL,
   `status_validasi` tinyint(1) NOT NULL DEFAULT '0',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `kode_bank` char(7) NOT NULL
@@ -131,10 +132,10 @@ CREATE TABLE `laporan` (
 -- Dumping data for table `laporan`
 --
 
-INSERT INTO `laporan` (`id`, `tahun_laporan`, `bulan_laporan`, `status_validasi`, `deleted`, `kode_bank`) VALUES
-(1, 2017, 5, 0, 0, '0090764'),
-(2, 2017, 4, 0, 0, '0090764'),
-(3, 2017, 5, 0, 0, '0022172');
+INSERT INTO `laporan` (`id`, `tahun_laporan`, `bulan_laporan`, `persentase`, `status_validasi`, `deleted`, `kode_bank`) VALUES
+(1, 2017, 5, 1, 0, 0, '0090764'),
+(2, 2017, 4, 2, 0, 0, '0090764'),
+(3, 2017, 5, 0, 0, 0, '0022172');
 
 -- --------------------------------------------------------
 

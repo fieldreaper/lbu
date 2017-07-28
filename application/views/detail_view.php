@@ -88,7 +88,7 @@
 												if(count($form13) > 0) {
 									?>
 													<tr>
-														<td>Form 13 - LOL</td>
+														<td>Form 13 - Daftar Rincian Cadangan Kerugian Penurunan Nilai Aset Keuangan</td>
 														<td>
 														<?php
 															if($form13->disetujui == FALSE) {
@@ -111,7 +111,7 @@
 																	<div class="modal-content">
 																		<div class="modal-header">
 																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
-																			<h4 class="modal-title">FORM 13 - LOL</h4>
+																			<h4 class="modal-title">Form 13 - Daftar Rincian Cadangan Kerugian Penurunan Nilai Aset Keuangan</h4>
 																		</div>
 																		<div class="modal-body">
 																			<table class="table table-striped">
@@ -123,6 +123,18 @@
 																					<tr>
 																						<th scope="row">Jenis Valuta</th>
 																						<td><?php echo $form13->jenis_valuta; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Nilai Agunan Yang Dapat Diperhitungkan</th>
+																						<td><?php echo "Rp. ".$form13->nilai_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Cadangan Kerugian Penurunan Nilai - Secara Individual</th>
+																						<td><?php echo "Rp. ".$form13->cadangan_kerugian_individual; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Cadangan Kerugian Penurunan Nilai - Secara Kolektif</th>
+																						<td><?php echo "Rp. ".$form13->cadangan_kerugian_kolektif; ?></td>
 																					</tr>
 																				</tbody>
 																			</table>
@@ -152,7 +164,7 @@
 												if(count($form19) > 0) {
 									?>
 													<tr>
-														<td>Form 19 - GGWP</td>
+														<td>Form 19 - Daftar Rincian Aset Antar Kantor Yang Melakukan kegiatan operasional di Indonesia</td>
 														<td>
 														<?php
 															if($form19->disetujui == FALSE) {
@@ -175,18 +187,22 @@
 																	<div class="modal-content">
 																		<div class="modal-header">
 																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
-																			<h4 class="modal-title">FORM 19 - GGWP</h4>
+																			<h4 class="modal-title">Form 19 - Daftar Rincian Aset Antar Kantor Yang Melakukan kegiatan operasional di Indonesia</h4>
 																		</div>
 																		<div class="modal-body">
 																			<table class="table table-striped">
 																				<tbody>
 																					<tr>
-																						<th scope="row">Jenis Penyediaan Dana</th>
+																						<th scope="row">Jenis</th>
 																						<td><?php echo $form19->jenis; ?></td>
 																					</tr>
 																					<tr>
 																						<th scope="row">Jenis Valuta</th>
 																						<td><?php echo $form19->jenis_valuta; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jumlah (Biaya Perolehan atau Biaya Perolehan diamortisasi atau Nilai Wajar</th>
+																						<td><?php echo "Rp. ".$form19->jumlah_perolehan; ?></td>
 																					</tr>
 																				</tbody>
 																			</table>

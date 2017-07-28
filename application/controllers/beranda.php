@@ -10,9 +10,15 @@ class Beranda extends CI_Controller {
 	}
 
 	public function index() {
-		$kode_bank = $this->session->userdata('kode_bank');
-		$data['daftar_laporan'] = $this->laporan_model->select_all($kode_bank)->result();
-		$this->load->view('beranda_view', $data);
+		$logged_in = $this->session->userdata('logged_in');
+		$role = $this->session->userdata('role');
+		if($logged_in && $role == "Manager") {
+			$kode_bank = $this->session->userdata('kode_bank');
+			$data['daftar_laporan'] = $this->laporan_model->select_all($kode_bank)->result();
+			$this->load->view('beranda_view', $data);
+		} else {
+			redirect(site_url('login'));
+		}
 	}
 
 	public function delete_laporan($id) {
@@ -21,10 +27,16 @@ class Beranda extends CI_Controller {
 	}
 
 	public function detail_laporan($id) {
-		$data['form13'] = $this->form_model->select_all_form13($id)->row();
-		$data['form19'] = $this->form_model->select_all_form19($id)->row();
-		$data['laporan_id'] = $id;
-		$this->load->view('detail_view', $data);
+		$logged_in = $this->session->userdata('logged_in');
+		$role = $this->session->userdata('role');
+		if($logged_in && $role == "Manager") {
+			$data['form13'] = $this->form_model->select_all_form13($id)->row();
+			$data['form19'] = $this->form_model->select_all_form19($id)->row();
+			$data['laporan_id'] = $id;
+			$this->load->view('detail_view', $data);
+		} else {
+			redirect(site_url('login'));
+		}
 	}
 
 	public function validasi_form() {
