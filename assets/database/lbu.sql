@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2017 at 01:52 PM
+-- Generation Time: Aug 05, 2017 at 01:26 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -68,6 +68,24 @@ INSERT INTO `bank` (`kode`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `form03`
+--
+
+CREATE TABLE `form03` (
+  `id` int(7) NOT NULL,
+  `jenis_mata_uang` varchar(15) NOT NULL,
+  `posisi_awal` int(12) NOT NULL,
+  `debet` int(12) NOT NULL,
+  `kredit` int(12) NOT NULL,
+  `lainnya` int(12) NOT NULL,
+  `posisi_akhir` int(12) NOT NULL,
+  `disetujui` tinyint(1) NOT NULL DEFAULT '0',
+  `id_laporan` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `form13`
 --
 
@@ -89,6 +107,27 @@ CREATE TABLE `form13` (
 INSERT INTO `form13` (`id`, `jenis_penyediaan_dana`, `jenis_valuta`, `nilai_agunan`, `cadangan_kerugian_individual`, `cadangan_kerugian_kolektif`, `disetujui`, `id_laporan`) VALUES
 (1, 'Penempatan pada bank lain', 'Rupiah', 500000000, 250000000, 400000000, 1, 2),
 (2, 'Surat Berharga', 'Rupiah', 375000000, 100000000, 250000000, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `form15`
+--
+
+CREATE TABLE `form15` (
+  `id` int(7) NOT NULL,
+  `jenis_aset` varchar(20) NOT NULL,
+  `jenis_valuta` varchar(15) NOT NULL,
+  `sumber_perolehan` varchar(60) NOT NULL,
+  `metode_pengukuran` varchar(15) NOT NULL,
+  `jumlah` int(12) NOT NULL,
+  `cadangan_kerugian` int(12) NOT NULL,
+  `akumulasi_penyusutan` int(12) NOT NULL,
+  `nilai_tercatat` int(12) NOT NULL,
+  `status_aset` varchar(20) NOT NULL,
+  `disetujui` tinyint(1) NOT NULL DEFAULT '0',
+  `id_laporan` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -115,11 +154,70 @@ INSERT INTO `form19` (`id`, `jenis`, `jenis_valuta`, `jumlah_perolehan`, `disetu
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `form39`
+--
+
+CREATE TABLE `form39` (
+  `id` int(7) NOT NULL,
+  `golongan_pemberi` varchar(50) NOT NULL,
+  `hubungan_bank` varchar(25) NOT NULL,
+  `status_pemberi` varchar(20) NOT NULL,
+  `negara_pemberi` varchar(25) NOT NULL,
+  `jenis_modal` varchar(25) NOT NULL,
+  `jumlah` int(12) NOT NULL,
+  `disetujui` tinyint(1) NOT NULL DEFAULT '0',
+  `id_laporan` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `form43`
+--
+
+CREATE TABLE `form43` (
+  `id` int(7) NOT NULL,
+  `jenis` varchar(15) NOT NULL,
+  `tujuan` varchar(25) NOT NULL,
+  `jenis_valuta` varchar(15) NOT NULL,
+  `kualitas` varchar(25) NOT NULL,
+  `jangka_waktu_mulai` date NOT NULL,
+  `jangka_waktu_jatuh_tempo` date NOT NULL,
+  `golongan_pemohon` varchar(50) NOT NULL,
+  `hubungan_bank` varchar(25) NOT NULL,
+  `status_pemohon` varchar(20) NOT NULL,
+  `kategori_portofolio` varchar(80) NOT NULL,
+  `negara_pemohon` varchar(25) NOT NULL,
+  `lembaga_pemeringkat` varchar(25) NOT NULL,
+  `peringkat_perusahaan` int(3) NOT NULL,
+  `tanggal_pemeringkatan` date NOT NULL,
+  `jumlah` int(12) NOT NULL,
+  `jenis_agunan` varchar(35) NOT NULL,
+  `sifat_agunan` varchar(15) NOT NULL,
+  `jenis_valuta_agunan` varchar(15) NOT NULL,
+  `jangka_waktu_mulai_agunan` date NOT NULL,
+  `jangka_waktu_jatuh_tempo_agunan` date NOT NULL,
+  `nilai_agunan` int(12) NOT NULL,
+  `tanggal_penilaian_agunan` date NOT NULL,
+  `penerbit_agunan` varchar(65) NOT NULL,
+  `lembaga_pemeringkat_agunan` varchar(25) NOT NULL,
+  `peringkat_agunan` int(3) NOT NULL,
+  `tanggal_pemeringkatan_agunan` date NOT NULL,
+  `nilai_agunan_diperhitungkan` int(12) NOT NULL,
+  `cadangan_umum` int(12) NOT NULL,
+  `cadangan_khusus` int(12) NOT NULL,
+  `disetujui` tinyint(1) NOT NULL DEFAULT '0',
+  `id_laporan` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `laporan`
 --
 
 CREATE TABLE `laporan` (
-  `id` int(11) NOT NULL,
+  `id` int(7) NOT NULL,
   `tahun_laporan` int(4) NOT NULL,
   `bulan_laporan` int(2) NOT NULL,
   `persentase` int(2) NOT NULL,
@@ -175,6 +273,12 @@ ALTER TABLE `bank`
   ADD PRIMARY KEY (`kode`);
 
 --
+-- Indexes for table `form03`
+--
+ALTER TABLE `form03`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `form13`
 --
 ALTER TABLE `form13`
@@ -182,11 +286,29 @@ ALTER TABLE `form13`
   ADD KEY `id_laporan` (`id_laporan`);
 
 --
+-- Indexes for table `form15`
+--
+ALTER TABLE `form15`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `form19`
 --
 ALTER TABLE `form19`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_laporan` (`id_laporan`);
+
+--
+-- Indexes for table `form39`
+--
+ALTER TABLE `form39`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `form43`
+--
+ALTER TABLE `form43`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `laporan`
@@ -207,20 +329,40 @@ ALTER TABLE `role`
 --
 
 --
+-- AUTO_INCREMENT for table `form03`
+--
+ALTER TABLE `form03`
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `form13`
 --
 ALTER TABLE `form13`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `form15`
+--
+ALTER TABLE `form15`
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `form19`
 --
 ALTER TABLE `form19`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `form39`
+--
+ALTER TABLE `form39`
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `form43`
+--
+ALTER TABLE `form43`
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `role`
 --

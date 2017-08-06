@@ -37,6 +37,7 @@ class Login extends CI_Controller {
 				$data_session = array(
 					'username'=>$akun->username,
 					'kode_bank'=>$akun->kode_bank,
+					'nama_bank'=>$akun->nama,
 					'role'=>$akun->role,
 					'logged_in'=>true);
 				$this->session->set_userdata($data_session);

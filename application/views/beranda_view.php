@@ -52,7 +52,7 @@
 
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<a href="javascript:;">Manager <?php echo $this->session->userdata('kode_bank'); ?></a>
+								<a href="javascript:;">Manager <?php echo $this->session->userdata('nama_bank'); ?></a>
 							</li>
 						</ul>
 					</nav>

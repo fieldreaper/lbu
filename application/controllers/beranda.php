@@ -29,7 +29,9 @@ class Beranda extends CI_Controller {
 	public function detail_laporan($id) {
 		$logged_in = $this->session->userdata('logged_in');
 		$role = $this->session->userdata('role');
-		if($logged_in && $role == "Manager") {
+		$kode_bank = $this->session->userdata('kode_bank');
+		$kode_bank_akses = $this->laporan_model->select_by_id($id)->row()->kode_bank;
+		if($logged_in && $role == "Manager" && $kode_bank == $kode_bank_akses) {
 			$data['form13'] = $this->form_model->select_all_form13($id)->row();
 			$data['form19'] = $this->form_model->select_all_form19($id)->row();
 			$data['laporan_id'] = $id;
