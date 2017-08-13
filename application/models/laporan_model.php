@@ -11,8 +11,8 @@ class Laporan_model extends CI_Model {
 		$this->db->from('laporan');
 		$this->db->where('kode_bank', $kode_bank);
 		$this->db->where('deleted', FALSE);
-		$this->db->order_by("tahun_laporan", "asc");
-		$this->db->order_by("bulan_laporan", "asc");
+		$this->db->order_by("tahun_laporan", "desc");
+		$this->db->order_by("bulan_laporan", "desc");
 
 		return $this->db->get();
 	}

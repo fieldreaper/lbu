@@ -96,7 +96,7 @@
 														<td><?php echo $bulan[$laporan->bulan_laporan]." ".$laporan->tahun_laporan; ?></td>
 														<td class="project_progress">
 															<?php
-																$persentase = $laporan->persentase/4*100;
+																$persentase = $laporan->persentase/5*100;
 															?>
 															<div class="progress progress_sm">
 																<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php echo $persentase; ?>"></div>

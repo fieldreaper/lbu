@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2017 at 01:26 PM
+-- Generation Time: Aug 11, 2017 at 02:01 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -61,9 +61,7 @@ CREATE TABLE `bank` (
 INSERT INTO `bank` (`kode`, `nama`) VALUES
 ('0022172', 'BRI KC Slamet Riyadi Solo'),
 ('0085384', 'Bank Mandiri KC Solo Sriwedari'),
-('0090764', 'BNI KC Slamet Riyadi Solo'),
-('0140148', 'BCA KC Solo'),
-('2000325', 'BTN KC Solo');
+('0090764', 'BNI KC Slamet Riyadi Solo');
 
 -- --------------------------------------------------------
 
@@ -83,30 +81,14 @@ CREATE TABLE `form03` (
   `id_laporan` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `form13`
+-- Dumping data for table `form03`
 --
 
-CREATE TABLE `form13` (
-  `id` int(11) NOT NULL,
-  `jenis_penyediaan_dana` varchar(100) NOT NULL,
-  `jenis_valuta` varchar(12) NOT NULL,
-  `nilai_agunan` int(12) NOT NULL,
-  `cadangan_kerugian_individual` int(12) NOT NULL,
-  `cadangan_kerugian_kolektif` int(12) NOT NULL,
-  `disetujui` tinyint(1) NOT NULL DEFAULT '0',
-  `id_laporan` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `form13`
---
-
-INSERT INTO `form13` (`id`, `jenis_penyediaan_dana`, `jenis_valuta`, `nilai_agunan`, `cadangan_kerugian_individual`, `cadangan_kerugian_kolektif`, `disetujui`, `id_laporan`) VALUES
-(1, 'Penempatan pada bank lain', 'Rupiah', 500000000, 250000000, 400000000, 1, 2),
-(2, 'Surat Berharga', 'Rupiah', 375000000, 100000000, 250000000, 1, 1);
+INSERT INTO `form03` (`id`, `jenis_mata_uang`, `posisi_awal`, `debet`, `kredit`, `lainnya`, `posisi_akhir`, `disetujui`, `id_laporan`) VALUES
+(1, 'Uang Kertas', 1000000000, 500000000, 375000000, 100000000, 1250000000, 0, 1),
+(2, 'Uang Kertas', 1250000000, 400000000, 300000000, 100000000, 2000000000, 0, 2),
+(3, 'Uang Logam', 300000000, 150000000, 75000000, 10000000, 450000000, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -129,6 +111,15 @@ CREATE TABLE `form15` (
   `id_laporan` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `form15`
+--
+
+INSERT INTO `form15` (`id`, `jenis_aset`, `jenis_valuta`, `sumber_perolehan`, `metode_pengukuran`, `jumlah`, `cadangan_kerugian`, `akumulasi_penyusutan`, `nilai_tercatat`, `status_aset`, `disetujui`, `id_laporan`) VALUES
+(1, 'Tanah', 'Rupiah', 'Bukan Sewa Pembiayaan Terkait dengan Bank', 'Model Biaya', 1, 0, 0, 500000000, 'Dijaminkan', 0, 1),
+(2, 'Kendaraan Dinas', 'Valuta Asing', 'Sewa Pembiayaan (Finance Lease) Tidak terkait dengan Bank', 'Model Revaluasi', 1, 0, 0, 125000000, 'Dijaminkan', 0, 2),
+(3, 'Perlengkapan Kantor', 'Rupiah', 'Bukan Sewa Pembiayaan Tidak terkait dengan Bank', 'Model Biaya', 10, 0, 0, 20000000, 'Tidak dijaminkan', 0, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -149,7 +140,9 @@ CREATE TABLE `form19` (
 --
 
 INSERT INTO `form19` (`id`, `jenis`, `jenis_valuta`, `jumlah_perolehan`, `disetujui`, `id_laporan`) VALUES
-(1, 'Giro', 'Rupiah', 1250000000, 1, 2);
+(1, 'Giro', 'Rupiah', 1250000000, 0, 1),
+(2, 'Dana Usaha', 'Rupiah', 750000000, 0, 2),
+(3, 'Deposito berjangka', 'Valuta Asing', 200000000, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -168,6 +161,15 @@ CREATE TABLE `form39` (
   `disetujui` tinyint(1) NOT NULL DEFAULT '0',
   `id_laporan` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `form39`
+--
+
+INSERT INTO `form39` (`id`, `golongan_pemberi`, `hubungan_bank`, `status_pemberi`, `negara_pemberi`, `jenis_modal`, `jumlah`, `disetujui`, `id_laporan`) VALUES
+(1, 'BNI KC Slamet Riyadi Solo', 'Tidak terkait dengan bank', 'Perusahaan Induk', 'Indonesia', 'Tunai', 50000000, 0, 1),
+(2, 'BNI KC Slamet Riyadi Solo', 'Terkait dengan bank', 'Perusahaan Induk', 'Indonesia', 'Saham Bank Sendiri', 100000000, 0, 2),
+(3, 'BNI KC Slamet Riyadi Solo', 'Tidak terkait dengan bank', 'Perusahaan Induk', 'Indonesia', 'Tunai', 100000000, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -210,6 +212,14 @@ CREATE TABLE `form43` (
   `id_laporan` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `form43`
+--
+
+INSERT INTO `form43` (`id`, `jenis`, `tujuan`, `jenis_valuta`, `kualitas`, `jangka_waktu_mulai`, `jangka_waktu_jatuh_tempo`, `golongan_pemohon`, `hubungan_bank`, `status_pemohon`, `kategori_portofolio`, `negara_pemohon`, `lembaga_pemeringkat`, `peringkat_perusahaan`, `tanggal_pemeringkatan`, `jumlah`, `jenis_agunan`, `sifat_agunan`, `jenis_valuta_agunan`, `jangka_waktu_mulai_agunan`, `jangka_waktu_jatuh_tempo_agunan`, `nilai_agunan`, `tanggal_penilaian_agunan`, `penerbit_agunan`, `lembaga_pemeringkat_agunan`, `peringkat_agunan`, `tanggal_pemeringkatan_agunan`, `nilai_agunan_diperhitungkan`, `cadangan_umum`, `cadangan_khusus`, `disetujui`, `id_laporan`) VALUES
+(1, 'Acceptance L/C', 'L/C dalam negeri (SKBDN)', 'Rupiah', 'Lancar', '2017-01-03', '2017-01-27', 'Pemerintah Kota', 'Tidak terkait dengan bank', 'Lainnya', 'Tagihan Kepada Pemerintah Indonesia', 'Indonesia', 'ICRA Indonesia', 30, '2014-01-03', 350000000, 'Tabungan', 'Non Eligible', 'Rupiah', '2017-01-03', '2017-01-27', 175000000, '2017-01-05', 'Pemerintah Pusat Republik Indonesia', 'ICRA Indonesia', 50, '2017-01-01', 100000000, 50000000, 0, 0, 1),
+(2, 'Negotiation L/C', 'L/C luar negeri', 'Valuta Asing', 'Lancar', '2017-02-07', '2017-02-25', 'Badan Urusan Logistik (BULOG)', 'Tidak terkait dengan bank', 'Perusahaan Induk', 'Tagihan Kepada Korporasi', 'Indonesia', 'Standard and Poor’s', 9, '2014-02-01', 125000000, 'Persediaan', 'Eligible', 'Valuta Asing', '2017-02-07', '2017-02-25', 100000000, '2017-02-08', 'Korporasi', 'Standard and Poor’s', 79, '2017-02-08', 50000000, 50000000, 0, 0, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -221,7 +231,6 @@ CREATE TABLE `laporan` (
   `tahun_laporan` int(4) NOT NULL,
   `bulan_laporan` int(2) NOT NULL,
   `persentase` int(2) NOT NULL,
-  `status_validasi` tinyint(1) NOT NULL DEFAULT '0',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `kode_bank` char(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -230,10 +239,10 @@ CREATE TABLE `laporan` (
 -- Dumping data for table `laporan`
 --
 
-INSERT INTO `laporan` (`id`, `tahun_laporan`, `bulan_laporan`, `persentase`, `status_validasi`, `deleted`, `kode_bank`) VALUES
-(1, 2017, 5, 1, 0, 0, '0090764'),
-(2, 2017, 4, 2, 0, 0, '0090764'),
-(3, 2017, 5, 0, 0, 0, '0022172');
+INSERT INTO `laporan` (`id`, `tahun_laporan`, `bulan_laporan`, `persentase`, `deleted`, `kode_bank`) VALUES
+(1, 2017, 1, 1, 0, '0090764'),
+(2, 2017, 2, 2, 0, '0090764'),
+(3, 2017, 1, 0, 0, '0022172');
 
 -- --------------------------------------------------------
 
@@ -276,12 +285,6 @@ ALTER TABLE `bank`
 -- Indexes for table `form03`
 --
 ALTER TABLE `form03`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `form13`
---
-ALTER TABLE `form13`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_laporan` (`id_laporan`);
 
@@ -289,7 +292,8 @@ ALTER TABLE `form13`
 -- Indexes for table `form15`
 --
 ALTER TABLE `form15`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_laporan` (`id_laporan`);
 
 --
 -- Indexes for table `form19`
@@ -302,13 +306,15 @@ ALTER TABLE `form19`
 -- Indexes for table `form39`
 --
 ALTER TABLE `form39`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_laporan` (`id_laporan`);
 
 --
 -- Indexes for table `form43`
 --
 ALTER TABLE `form43`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_laporan` (`id_laporan`);
 
 --
 -- Indexes for table `laporan`
@@ -332,32 +338,27 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `form03`
 --
 ALTER TABLE `form03`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `form13`
---
-ALTER TABLE `form13`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `form15`
 --
 ALTER TABLE `form15`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `form19`
 --
 ALTER TABLE `form19`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `form39`
 --
 ALTER TABLE `form39`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `form43`
 --
 ALTER TABLE `form43`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `laporan`
 --
@@ -380,16 +381,34 @@ ALTER TABLE `akun`
   ADD CONSTRAINT `fk_akun_role` FOREIGN KEY (`role`) REFERENCES `role` (`nama`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `form13`
+-- Constraints for table `form03`
 --
-ALTER TABLE `form13`
-  ADD CONSTRAINT `fk_form13_laporan` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `form03`
+  ADD CONSTRAINT `fk_form03_laporan` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `form15`
+--
+ALTER TABLE `form15`
+  ADD CONSTRAINT `fk_form15_laporan` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `form19`
 --
 ALTER TABLE `form19`
   ADD CONSTRAINT `fk_form19_laporan` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `form39`
+--
+ALTER TABLE `form39`
+  ADD CONSTRAINT `fk_form39_laporan` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `form43`
+--
+ALTER TABLE `form43`
+  ADD CONSTRAINT `fk_form43_laporan` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `laporan`

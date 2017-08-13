@@ -71,7 +71,7 @@
 								</div>
 								<div class="x_content">
 									<?php
-										if(count($form13) == 0 && count($form19) == 0) {
+										if(count($form03) == 0 && count($form15) == 0 && count($form19) == 0 && count($form39) == 0 && count($form43) == 0) {
 											echo "Belum ada form yang dibuat";
 										} else {
 									?>
@@ -85,13 +85,13 @@
 												</thead>
 												<tbody>
 									<?php
-												if(count($form13) > 0) {
+												if(count($form03) > 0) {
 									?>
 													<tr>
-														<td>Form 13 - Daftar Rincian Cadangan Kerugian Penurunan Nilai Aset Keuangan</td>
+														<td>Form 03 - Daftar Rincian Kas</td>
 														<td>
 														<?php
-															if($form13->disetujui == FALSE) {
+															if($form03->disetujui == FALSE) {
 														?>
 																<button type="button" class="btn btn-warning btn-xs">Belum disetujui</button>
 														<?php
@@ -103,50 +103,146 @@
 														?>
 														</td>
 														<td>
-															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form13"><i class="fa fa-eye"></i> Lihat </button>
+															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form03"><i class="fa fa-eye"></i> Lihat </button>
 															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
 
-															<div id="form13" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+															<div id="form03" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 																<div class="modal-dialog modal-lg">
 																	<div class="modal-content">
 																		<div class="modal-header">
 																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
-																			<h4 class="modal-title">Form 13 - Daftar Rincian Cadangan Kerugian Penurunan Nilai Aset Keuangan</h4>
+																			<h4 class="modal-title">Form 03 - Daftar Rincian Kas</h4>
 																		</div>
 																		<div class="modal-body">
 																			<table class="table table-striped">
 																				<tbody>
 																					<tr>
-																						<th scope="row">Jenis Penyediaan Dana</th>
-																						<td><?php echo $form13->jenis_penyediaan_dana; ?></td>
+																						<th scope="row">Jenis Mata Uang</th>
+																						<td><?php echo $form03->jenis_mata_uang; ?></td>
 																					</tr>
 																					<tr>
-																						<th scope="row">Jenis Valuta</th>
-																						<td><?php echo $form13->jenis_valuta; ?></td>
+																						<th scope="row">Posisi Awal</th>
+																						<td><?php echo "Rp. ".$form03->posisi_awal; ?></td>
 																					</tr>
 																					<tr>
-																						<th scope="row">Nilai Agunan Yang Dapat Diperhitungkan</th>
-																						<td><?php echo "Rp. ".$form13->nilai_agunan; ?></td>
+																						<th scope="row">Debet</th>
+																						<td><?php echo "Rp. ".$form03->debet; ?></td>
 																					</tr>
 																					<tr>
-																						<th scope="row">Cadangan Kerugian Penurunan Nilai - Secara Individual</th>
-																						<td><?php echo "Rp. ".$form13->cadangan_kerugian_individual; ?></td>
+																						<th scope="row">Kredit</th>
+																						<td><?php echo "Rp. ".$form03->kredit; ?></td>
 																					</tr>
 																					<tr>
-																						<th scope="row">Cadangan Kerugian Penurunan Nilai - Secara Kolektif</th>
-																						<td><?php echo "Rp. ".$form13->cadangan_kerugian_kolektif; ?></td>
+																						<th scope="row">Lainnya</th>
+																						<td><?php echo "Rp. ".$form03->lainnya; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Posisi Akhir</th>
+																						<td><?php echo "Rp. ".$form03->posisi_akhir; ?></td>
 																					</tr>
 																				</tbody>
 																			</table>
 																		</div>
 																		<form action="<?php echo site_url('beranda/validasi_form'); ?>" method="post">
-																			<input type="hidden" name="id" value="<?php echo $form13->id; ?>">
+																			<input type="hidden" name="id" value="<?php echo $form03->id; ?>">
 																			<input type="hidden" name="laporan_id" value="<?php echo $laporan_id; ?>">
-																			<input type="hidden" name="form_num" value="13">
+																			<input type="hidden" name="form_num" value="3">
 																			<div class="modal-footer">
 																				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 																				<?php
-																					if(!$form13->disetujui) {
+																					if(!$form03->disetujui) {
+																				?>
+																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					}
+																				?>
+																			</div>
+																		</form>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+									<?php
+												}
+												if(count($form15) > 0) {
+									?>
+													<tr>
+														<td>Form 15 - Daftar Rincian Aset Tetap dan Inventaris</td>
+														<td>
+														<?php
+															if($form15->disetujui == FALSE) {
+														?>
+																<button type="button" class="btn btn-warning btn-xs">Belum disetujui</button>
+														<?php
+															} else {
+														?>
+																<button type="button" class="btn btn-success btn-xs">Sudah disetujui</button>
+														<?php
+															}
+														?>
+														</td>
+														<td>
+															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form15"><i class="fa fa-eye"></i> Lihat </button>
+															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+
+															<div id="form15" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+																<div class="modal-dialog modal-lg">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+																			<h4 class="modal-title">Form 15 - Daftar Rincian Aset Tetap dan Inventaris</h4>
+																		</div>
+																		<div class="modal-body">
+																			<table class="table table-striped">
+																				<tbody>
+																					<tr>
+																						<th scope="row">Jenis Aset Tetap dan Inventaris</th>
+																						<td><?php echo $form15->jenis_aset; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jenis Valuta</th>
+																						<td><?php echo $form15->jenis_valuta; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Sumber Perolehan</th>
+																						<td><?php echo $form15->sumber_perolehan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Metode Pengukuran</th>
+																						<td><?php echo $form15->metode_pengukuran; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jumlah (Biaya Perolehan atau Nilai Wajar)</th>
+																						<td><?php echo "Rp. ".$form15->jumlah; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Cadangan Kerugian Penurunan Nilai</th>
+																						<td><?php echo "Rp. ".$form15->cadangan_kerugian; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Akumulasi Penyusutan</th>
+																						<td><?php echo "Rp. ".$form15->akumulasi_penyusutan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Nilai Tercatat</th>
+																						<td><?php echo "Rp. ".$form15->nilai_tercatat; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Status Aset Tetap dan Inventaris</th>
+																						<td><?php echo $form15->status_aset; ?></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																		<form action="<?php echo site_url('beranda/validasi_form'); ?>" method="post">
+																			<input type="hidden" name="id" value="<?php echo $form15->id; ?>">
+																			<input type="hidden" name="laporan_id" value="<?php echo $laporan_id; ?>">
+																			<input type="hidden" name="form_num" value="15">
+																			<div class="modal-footer">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+																				<?php
+																					if(!$form15->disetujui) {
 																				?>
 																						<button type="submit" class="btn btn-primary">Validasi</button>
 																				<?php
@@ -215,6 +311,86 @@
 																				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 																				<?php
 																					if(!$form19->disetujui) {
+																				?>
+																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					}
+																				?>
+																			</div>
+																		</form>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+									<?php
+												}
+												if(count($form39) > 0) {
+									?>
+													<tr>
+														<td>Form 39 - Daftar Rincian Modal Sumbangan</td>
+														<td>
+														<?php
+															if($form39->disetujui == FALSE) {
+														?>
+																<button type="button" class="btn btn-warning btn-xs">Belum disetujui</button>
+														<?php
+															} else {
+														?>
+																<button type="button" class="btn btn-success btn-xs">Sudah disetujui</button>
+														<?php
+															}
+														?>
+														</td>
+														<td>
+															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form39"><i class="fa fa-eye"></i> Lihat </button>
+															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+
+															<div id="form39" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+																<div class="modal-dialog modal-lg">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+																			<h4 class="modal-title">Form 39 - Daftar Rincian Modal Sumbangan</h4>
+																		</div>
+																		<div class="modal-body">
+																			<table class="table table-striped">
+																				<tbody>
+																					<tr>
+																						<th scope="row">Golongan Pemberi Modal Sumbangan</th>
+																						<td><?php echo $form39->golongan_pemberi; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Hubungan dengan Bank</th>
+																						<td><?php echo $form39->hubungan_bank; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Status Pemberi Modal Sumbangan</th>
+																						<td><?php echo $form39->status_pemberi; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Negara Pemberi Modal Sumbangan</th>
+																						<td><?php echo $form39->negara_pemberi; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jenis Modal Sumbangan</th>
+																						<td><?php echo $form39->jenis_modal; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jumlah</th>
+																						<td><?php echo "Rp. ".$form39->jumlah; ?></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																		<form action="<?php echo site_url('beranda/validasi_form'); ?>" method="post">
+																			<input type="hidden" name="id" value="<?php echo $form39->id; ?>">
+																			<input type="hidden" name="laporan_id" value="<?php echo $laporan_id; ?>">
+																			<input type="hidden" name="form_num" value="39">
+																			<div class="modal-footer">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+																				<?php
+																					if(!$form39->disetujui) {
 																				?>
 																						<button type="submit" class="btn btn-primary">Validasi</button>
 																				<?php

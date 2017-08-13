@@ -32,8 +32,11 @@ class Beranda extends CI_Controller {
 		$kode_bank = $this->session->userdata('kode_bank');
 		$kode_bank_akses = $this->laporan_model->select_by_id($id)->row()->kode_bank;
 		if($logged_in && $role == "Manager" && $kode_bank == $kode_bank_akses) {
-			$data['form13'] = $this->form_model->select_all_form13($id)->row();
+			$data['form03'] = $this->form_model->select_all_form03($id)->row();
+			$data['form15'] = $this->form_model->select_all_form15($id)->row();
 			$data['form19'] = $this->form_model->select_all_form19($id)->row();
+			$data['form39'] = $this->form_model->select_all_form39($id)->row();
+			$data['form43'] = $this->form_model->select_all_form43($id)->row();
 			$data['laporan_id'] = $id;
 			$this->load->view('detail_view', $data);
 		} else {
@@ -45,11 +48,20 @@ class Beranda extends CI_Controller {
 		$form = $this->input->post('form_num');
 		$form_id = $this->input->post('id');
 		$laporan_id = $this->input->post('laporan_id');
-		if($form == 13) {
-			$this->form_model->validasi_form13($form_id);
+		if($form == 3) {
+			$this->form_model->validasi_form03($form_id);
+			$this->laporan_model->tambah_persentase($laporan_id);
+		} else if($form == 15) {
+			$this->form_model->validasi_form15($form_id);
 			$this->laporan_model->tambah_persentase($laporan_id);
 		} else if($form == 19) {
 			$this->form_model->validasi_form19($form_id);
+			$this->laporan_model->tambah_persentase($laporan_id);
+		} else if($form == 39) {
+			$this->form_model->validasi_form39($form_id);
+			$this->laporan_model->tambah_persentase($laporan_id);
+		} else if($form == 43) {
+			$this->form_model->validasi_form43($form_id);
 			$this->laporan_model->tambah_persentase($laporan_id);
 		}
 		redirect(site_url('beranda/detail_laporan/'.$laporan_id));
