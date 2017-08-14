@@ -405,6 +405,178 @@
 													</tr>
 									<?php
 												}
+												if(count($form43) > 0) {
+									?>
+													<tr>
+														<td>Form 43 - Daftar Rincian Irrevocable L/C Yang Masih Berjalan</td>
+														<td>
+														<?php
+															if($form43->disetujui == FALSE) {
+														?>
+																<button type="button" class="btn btn-warning btn-xs">Belum disetujui</button>
+														<?php
+															} else {
+														?>
+																<button type="button" class="btn btn-success btn-xs">Sudah disetujui</button>
+														<?php
+															}
+														?>
+														</td>
+														<td>
+															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form43"><i class="fa fa-eye"></i> Lihat </button>
+															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+
+															<div id="form43" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+																<div class="modal-dialog modal-lg">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+																			<h4 class="modal-title">Form 43 - Daftar Rincian Irrevocable L/C Yang Masih Berjalan</h4>
+																		</div>
+																		<div class="modal-body">
+																			<table class="table table-striped">
+																				<tbody>
+																					<tr>
+																						<th scope="row">Jenis</th>
+																						<td><?php echo $form43->jenis; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Tujuan</th>
+																						<td><?php echo $form43->tujuan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jenis Valuta</th>
+																						<td><?php echo $form43->jenis_valuta; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Kualitas</th>
+																						<td><?php echo $form43->kualitas; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jangka Waktu - Mulai</th>
+																						<td><?php echo $form43->jangka_waktu_mulai; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jangka Waktu - Jatuh Tempo</th>
+																						<td><?php echo $form43->jangka_waktu_jatuh_tempo; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Golongan Pemohon</th>
+																						<td><?php echo $form43->golongan_pemohon; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Hubungan dengan Bank</th>
+																						<td><?php echo $form43->hubungan_bank; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Status Pemohon</th>
+																						<td><?php echo $form43->status_pemohon; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Kategori Portofolio</th>
+																						<td><?php echo $form43->kategori_portofolio; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Negara Pemohon</th>
+																						<td><?php echo $form43->negara_pemohon; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Lembaga Pemeringkat</th>
+																						<td><?php echo $form43->lembaga_pemeringkat; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Peringkat Perusahaan</th>
+																						<td><?php echo $form43->peringkat_perusahaan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Tanggal Pemeringkatan</th>
+																						<td><?php echo $form43->tanggal_pemeringkatan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jumlah</th>
+																						<td><?php echo $form43->jumlah; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jenis Agunan</th>
+																						<td><?php echo $form43->jenis_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Sifat Agunan</th>
+																						<td><?php echo $form43->sifat_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jenis Valuta Agunan</th>
+																						<td><?php echo $form43->jenis_valuta_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jangka Waktu - Mulai Agunan</th>
+																						<td><?php echo $form43->jangka_waktu_mulai_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Jangka Waktu - Jatuh Tempo Agunan</th>
+																						<td><?php echo $form43->jangka_waktu_jatuh_tempo_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Nilai Agunan</th>
+																						<td><?php echo "Rp. ".$form43->nilai_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Tanggal Penilaian Terkahir Agunan</th>
+																						<td><?php echo $form43->tanggal_penilaian_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Penerbit Agunan</th>
+																						<td><?php echo $form43->penerbit_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Lembaga Pemeringkatan Agunan</th>
+																						<td><?php echo $form43->lembaga_pemeringkat_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Peringkat Penerbit Agunan</th>
+																						<td><?php echo $form43->peringkat_penerbit_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Tanggal Pemeringkatan Agunan</th>
+																						<td><?php echo $form43->tanggal_pemeringkatan_agunan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Nilai Agunan Yang Dapat Diperhitungkan</th>
+																						<td><?php echo "Rp. ".$form43->nilai_agunan_diperhitungkan; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Cadangan Umum</th>
+																						<td><?php echo "Rp. ".$form43->cadangan_umum; ?></td>
+																					</tr>
+																					<tr>
+																						<th scope="row">Cadangan Khusus</th>
+																						<td><?php echo "Rp. ".$form43->cadangan_khusus; ?></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																		<form action="<?php echo site_url('beranda/validasi_form'); ?>" method="post">
+																			<input type="hidden" name="id" value="<?php echo $form43->id; ?>">
+																			<input type="hidden" name="laporan_id" value="<?php echo $laporan_id; ?>">
+																			<input type="hidden" name="form_num" value="43">
+																			<div class="modal-footer">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+																				<?php
+																					if(!$form43->disetujui) {
+																				?>
+																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					}
+																				?>
+																			</div>
+																		</form>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+									<?php
+												}
 									?>
 												</tbody>
 											</table>
