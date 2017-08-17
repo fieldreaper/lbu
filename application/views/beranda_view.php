@@ -22,7 +22,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="<?php echo site_url('beranda'); ?>" class="site_title">LBU</a>
+						<a href="<?php echo site_url('beranda'); ?>" class="site_title"><i class="fa fa-university"></i> LBU</a>
 					</div>
 					<div class="clearfix"></div>
 					<br>
@@ -66,7 +66,7 @@
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Overview Laporan</h2>
+									<h2>Laporan</h2>
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">

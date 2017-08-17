@@ -30,7 +30,9 @@ class Beranda extends CI_Controller {
 		$logged_in = $this->session->userdata('logged_in');
 		$role = $this->session->userdata('role');
 		$kode_bank = $this->session->userdata('kode_bank');
-		$kode_bank_akses = $this->laporan_model->select_by_id($id)->row()->kode_bank;
+		$selected_laporan = $this->laporan_model->select_by_id($id)->row();
+		$kode_bank_akses = $selected_laporan->kode_bank;
+		$nama_laporan = $this->conv_bulan_laporan($selected_laporan->bulan_laporan)." ".$selected_laporan->tahun_laporan;
 		if($logged_in && $role == "Manager" && $kode_bank == $kode_bank_akses) {
 			$data['form03'] = $this->form_model->select_all_form03($id)->row();
 			$data['form15'] = $this->form_model->select_all_form15($id)->row();
@@ -38,6 +40,7 @@ class Beranda extends CI_Controller {
 			$data['form39'] = $this->form_model->select_all_form39($id)->row();
 			$data['form43'] = $this->form_model->select_all_form43($id)->row();
 			$data['laporan_id'] = $id;
+			$data['nama_laporan'] = $nama_laporan;
 			$this->load->view('detail_view', $data);
 		} else {
 			redirect(site_url('login'));
@@ -65,6 +68,12 @@ class Beranda extends CI_Controller {
 			$this->laporan_model->tambah_persentase($laporan_id);
 		}
 		redirect(site_url('beranda/detail_laporan/'.$laporan_id));
+	}
+
+	private function conv_bulan_laporan($index) {
+		$bulan = array("1"=>"Januari", "2"=>"Februari", "3"=>"Maret", "4"=>"April", "5"=>"Mei", "6"=>"Juni", "7"=>"Juli", "8"=>"Agustus", "9"=>"September", "10"=>"Oktober", "11"=>"November", "12"=>"Desember");
+
+		return $bulan[$index];
 	}
 }
 

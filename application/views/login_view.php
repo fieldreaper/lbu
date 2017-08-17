@@ -22,6 +22,7 @@
 				<?php echo validation_errors(); ?>
 				<?php echo form_open('login/cek_login'); ?>
 					<h1>Login LBU</h1>
+					<h2>Laporan Bulanan Bank Umum</h2>
 					<p style="color: red;"><?php echo $this->session->flashdata('notifikasi_login'); ?></p>
 					<div>
 						<input type="text" name="username" placeholder="Username" class="form-control" required />
