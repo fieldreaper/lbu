@@ -76,12 +76,6 @@ class Form_model extends CI_Model {
 		$this->db->where('id', $id);
 		$this->db->update('form43', $disetujui);
 	}
-
-	/*function delete_form($id) {
-		$deleted = array('deleted'=>TRUE);
-		$this->db->where('id', $id);
-		$this->db->update('laporan', $deleted);
-	}*/
 }
 
 ?>

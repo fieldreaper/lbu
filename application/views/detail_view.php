@@ -104,7 +104,6 @@
 														</td>
 														<td>
 															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form03"><i class="fa fa-eye"></i> Lihat </button>
-															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
 
 															<div id="form03" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 																<div class="modal-dialog modal-lg">
@@ -184,7 +183,6 @@
 														</td>
 														<td>
 															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form15"><i class="fa fa-eye"></i> Lihat </button>
-															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
 
 															<div id="form15" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 																<div class="modal-dialog modal-lg">
@@ -276,7 +274,6 @@
 														</td>
 														<td>
 															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form19"><i class="fa fa-eye"></i> Lihat </button>
-															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
 
 															<div id="form19" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 																<div class="modal-dialog modal-lg">
@@ -344,7 +341,6 @@
 														</td>
 														<td>
 															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form39"><i class="fa fa-eye"></i> Lihat </button>
-															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
 
 															<div id="form39" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 																<div class="modal-dialog modal-lg">
@@ -424,7 +420,6 @@
 														</td>
 														<td>
 															<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form43"><i class="fa fa-eye"></i> Lihat </button>
-															<a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
 
 															<div id="form43" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 																<div class="modal-dialog modal-lg">

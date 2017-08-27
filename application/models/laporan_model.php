@@ -36,18 +36,6 @@ class Laporan_model extends CI_Model {
 		$this->db->where('id', $id);
 		$this->db->update('laporan', $deleted);
 	}
-
-	/*function select_all_paging($limit = array()) {
-		$this->db->select('*');
-		$this->db->from('laporan');
-		$this->db->where('kode_bank', $kode_bank);
-
-		if($limit != NULL) {
-			$this->db->limit($limit['perpage'], $limit['offset']);
-		}
-
-		return $this->db->get();
-	}*/
 }
 
 ?>

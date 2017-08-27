@@ -21,7 +21,7 @@ class Beranda extends CI_Controller {
 		}
 	}
 
-	public function delete_laporan($id) {
+	public function hapus_laporan($id) {
 		$this->laporan_model->delete_laporan($id);
 		redirect(site_url('beranda'));
 	}
@@ -32,8 +32,9 @@ class Beranda extends CI_Controller {
 		$kode_bank = $this->session->userdata('kode_bank');
 		$selected_laporan = $this->laporan_model->select_by_id($id)->row();
 		$kode_bank_akses = $selected_laporan->kode_bank;
+		$deleted = $selected_laporan->deleted;
 		$nama_laporan = $this->conv_bulan_laporan($selected_laporan->bulan_laporan)." ".$selected_laporan->tahun_laporan;
-		if($logged_in && $role == "Manager" && $kode_bank == $kode_bank_akses) {
+		if($logged_in && $role == "Manager" && $kode_bank == $kode_bank_akses && !$deleted) {
 			$data['form03'] = $this->form_model->select_all_form03($id)->row();
 			$data['form15'] = $this->form_model->select_all_form15($id)->row();
 			$data['form19'] = $this->form_model->select_all_form19($id)->row();

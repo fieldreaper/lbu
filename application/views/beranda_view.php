@@ -117,8 +117,28 @@
 															?>
 														</td>
 														<td>
-															<a href="<?php echo site_url('beranda/detail_laporan/' .$laporan->id); ?>" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Detail </a>
-															<a href="<?php echo site_url('beranda/delete_laporan/' .$laporan->id); ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+															<a href="<?php echo site_url('beranda/detail_laporan/'.$laporan->id); ?>" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Detail </a>
+															<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#hapus_<?php echo $laporan->id; ?>"><i class="fa fa-trash-o"></i> Hapus </button>
+
+															<div id="hapus_<?php echo $laporan->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+																<div class="modal-dialog modal-sm">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+																			<h4 class="modal-title">Hapus Laporan</h4>
+																		</div>
+																		<div class="modal-body">
+																			<h4>Apakah anda yakin akan menghapus laporan bulan <strong><?php echo $bulan[$laporan->bulan_laporan]; ?></strong> tahun <strong><?php echo $laporan->tahun_laporan; ?></strong>?</h4>
+																		</div>
+																		<form action="<?php echo site_url('beranda/hapus_laporan/'.$laporan->id); ?>" method="post">
+																			<div class="modal-footer">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+																				<button type="submit" class="btn btn-danger">Hapus</button>
+																			</div>
+																		</form>
+																	</div>
+																</div>
+															</div>
 														</td>
 													</tr>
 									<?php
