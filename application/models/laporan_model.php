@@ -25,8 +25,12 @@ class Laporan_model extends CI_Model {
 		return $this->db->get();
 	}
 
-	function tambah_persentase($id) {
-		$this->db->set('persentase', 'persentase+1', FALSE);
+	function persentase($id, $kode_validasi) {
+		if($kode_validasi == "1") {
+			$this->db->set('persentase', 'persentase+1', FALSE);
+		} else {
+			$this->db->set('persentase', 'persentase-1', FALSE);
+		}
 		$this->db->where('id', $id);
 		$this->db->update('laporan');
 	}

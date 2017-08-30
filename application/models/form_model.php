@@ -47,32 +47,52 @@ class Form_model extends CI_Model {
 		return $this->db->get();
 	}
 
-	function validasi_form03($id) {
-		$disetujui = array('disetujui'=>TRUE);
+	function validasi_form03($id, $kode_validasi) {
+		if($kode_validasi == "1") {
+			$disetujui = array('disetujui'=>TRUE);
+		} else {
+			$disetujui = array('disetujui'=>FALSE);
+		}
 		$this->db->where('id', $id);
 		$this->db->update('form03', $disetujui);
 	}
 
-	function validasi_form15($id) {
-		$disetujui = array('disetujui'=>TRUE);
+	function validasi_form15($id, $kode_validasi) {
+		if($kode_validasi == "1") {
+			$disetujui = array('disetujui'=>TRUE);
+		} else {
+			$disetujui = array('disetujui'=>FALSE);
+		}
 		$this->db->where('id', $id);
 		$this->db->update('form15', $disetujui);
 	}
 
-	function validasi_form19($id) {
-		$disetujui = array('disetujui'=>TRUE);
+	function validasi_form19($id, $kode_validasi) {
+		if($kode_validasi == "1") {
+			$disetujui = array('disetujui'=>TRUE);
+		} else {
+			$disetujui = array('disetujui'=>FALSE);
+		}
 		$this->db->where('id', $id);
 		$this->db->update('form19', $disetujui);
 	}
 
-	function validasi_form39($id) {
-		$disetujui = array('disetujui'=>TRUE);
+	function validasi_form39($id, $kode_validasi) {
+		if($kode_validasi == "1") {
+			$disetujui = array('disetujui'=>TRUE);
+		} else {
+			$disetujui = array('disetujui'=>FALSE);
+		}
 		$this->db->where('id', $id);
 		$this->db->update('form39', $disetujui);
 	}
 
-	function validasi_form43($id) {
-		$disetujui = array('disetujui'=>TRUE);
+	function validasi_form43($id, $kode_validasi) {
+		if($kode_validasi == "1") {
+			$disetujui = array('disetujui'=>TRUE);
+		} else {
+			$disetujui = array('disetujui'=>FALSE);
+		}
 		$this->db->where('id', $id);
 		$this->db->update('form43', $disetujui);
 	}

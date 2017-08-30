@@ -52,21 +52,22 @@ class Beranda extends CI_Controller {
 		$form = $this->input->post('form_num');
 		$form_id = $this->input->post('id');
 		$laporan_id = $this->input->post('laporan_id');
+		$kode_validasi = $this->input->post('kode_validasi');
 		if($form == 3) {
-			$this->form_model->validasi_form03($form_id);
-			$this->laporan_model->tambah_persentase($laporan_id);
+			$this->form_model->validasi_form03($form_id, $kode_validasi);
+			$this->laporan_model->persentase($laporan_id, $kode_validasi);
 		} else if($form == 15) {
-			$this->form_model->validasi_form15($form_id);
-			$this->laporan_model->tambah_persentase($laporan_id);
+			$this->form_model->validasi_form15($form_id, $kode_validasi);
+			$this->laporan_model->persentase($laporan_id, $kode_validasi);
 		} else if($form == 19) {
-			$this->form_model->validasi_form19($form_id);
-			$this->laporan_model->tambah_persentase($laporan_id);
+			$this->form_model->validasi_form19($form_id, $kode_validasi);
+			$this->laporan_model->persentase($laporan_id, $kode_validasi);
 		} else if($form == 39) {
-			$this->form_model->validasi_form39($form_id);
-			$this->laporan_model->tambah_persentase($laporan_id);
+			$this->form_model->validasi_form39($form_id, $kode_validasi);
+			$this->laporan_model->persentase($laporan_id, $kode_validasi);
 		} else if($form == 43) {
-			$this->form_model->validasi_form43($form_id);
-			$this->laporan_model->tambah_persentase($laporan_id);
+			$this->form_model->validasi_form43($form_id, $kode_validasi);
+			$this->laporan_model->persentase($laporan_id, $kode_validasi);
 		}
 		redirect(site_url('beranda/detail_laporan/'.$laporan_id));
 	}

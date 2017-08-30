@@ -151,7 +151,13 @@
 																				<?php
 																					if(!$form03->disetujui) {
 																				?>
+																						<input type="hidden" name="kode_validasi" value="1">
 																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					} else {
+																				?>
+																						<input type="hidden" name="kode_validasi" value="0">
+																						<button type="submit" class="btn btn-danger">Batal Validasi</button>
 																				<?php
 																					}
 																				?>
@@ -242,7 +248,13 @@
 																				<?php
 																					if(!$form15->disetujui) {
 																				?>
+																						<input type="hidden" name="kode_validasi" value="1">
 																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					} else {
+																				?>
+																						<input type="hidden" name="kode_validasi" value="0">
+																						<button type="submit" class="btn btn-danger">Batal Validasi</button>
 																				<?php
 																					}
 																				?>
@@ -309,7 +321,13 @@
 																				<?php
 																					if(!$form19->disetujui) {
 																				?>
+																						<input type="hidden" name="kode_validasi" value="1">
 																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					} else {
+																				?>
+																						<input type="hidden" name="kode_validasi" value="0">
+																						<button type="submit" class="btn btn-danger">Batal Validasi</button>
 																				<?php
 																					}
 																				?>
@@ -388,7 +406,13 @@
 																				<?php
 																					if(!$form39->disetujui) {
 																				?>
+																						<input type="hidden" name="kode_validasi" value="1">
 																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					} else {
+																				?>
+																						<input type="hidden" name="kode_validasi" value="0">
+																						<button type="submit" class="btn btn-danger">Batal Validasi</button>
 																				<?php
 																					}
 																				?>
@@ -559,7 +583,13 @@
 																				<?php
 																					if(!$form43->disetujui) {
 																				?>
+																						<input type="hidden" name="kode_validasi" value="1">
 																						<button type="submit" class="btn btn-primary">Validasi</button>
+																				<?php
+																					} else {
+																				?>
+																						<input type="hidden" name="kode_validasi" value="0">
+																						<button type="submit" class="btn btn-danger">Batal Validasi</button>
 																				<?php
 																					}
 																				?>
