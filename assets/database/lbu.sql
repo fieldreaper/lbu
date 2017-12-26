@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2017 at 05:12 PM
+-- Generation Time: Dec 26, 2017 at 08:54 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -86,8 +86,8 @@ CREATE TABLE `form03` (
 --
 
 INSERT INTO `form03` (`id`, `jenis_mata_uang`, `posisi_awal`, `debet`, `kredit`, `lainnya`, `posisi_akhir`, `disetujui`, `id_laporan`) VALUES
-(1, 'Uang Kertas', 1000000000, 500000000, 375000000, 100000000, 1250000000, 0, 1),
-(2, 'Uang Kertas', 1250000000, 400000000, 300000000, 100000000, 2000000000, 1, 2),
+(1, 'Uang Kertas', 1000000000, 500000000, 375000000, 100000000, 1250000000, 1, 1),
+(2, 'Uang Kertas', 1250000000, 400000000, 300000000, 100000000, 2000000000, 0, 2),
 (3, 'Uang Logam', 300000000, 150000000, 75000000, 10000000, 450000000, 1, 3);
 
 -- --------------------------------------------------------
@@ -140,7 +140,7 @@ CREATE TABLE `form19` (
 --
 
 INSERT INTO `form19` (`id`, `jenis`, `jenis_valuta`, `jumlah_perolehan`, `disetujui`, `id_laporan`) VALUES
-(1, 'Giro', 'Rupiah', 1250000000, 0, 1),
+(1, 'Giro', 'Rupiah', 1250000000, 1, 1),
 (2, 'Dana Usaha', 'Rupiah', 750000000, 1, 2),
 (3, 'Deposito berjangka', 'Valuta Asing', 200000000, 0, 3);
 
@@ -167,7 +167,7 @@ CREATE TABLE `form39` (
 --
 
 INSERT INTO `form39` (`id`, `golongan_pemberi`, `hubungan_bank`, `status_pemberi`, `negara_pemberi`, `jenis_modal`, `jumlah`, `disetujui`, `id_laporan`) VALUES
-(1, 'BNI KC Slamet Riyadi Solo', 'Tidak terkait dengan bank', 'Perusahaan Induk', 'Indonesia', 'Tunai', 50000000, 0, 1),
+(1, 'BNI KC Slamet Riyadi Solo', 'Tidak terkait dengan bank', 'Perusahaan Induk', 'Indonesia', 'Tunai', 50000000, 1, 1),
 (2, 'BNI KC Slamet Riyadi Solo', 'Terkait dengan bank', 'Perusahaan Induk', 'Indonesia', 'Saham Bank Sendiri', 100000000, 1, 2),
 (3, 'BNI KC Slamet Riyadi Solo', 'Tidak terkait dengan bank', 'Perusahaan Induk', 'Indonesia', 'Tunai', 100000000, 1, 3);
 
@@ -218,7 +218,7 @@ CREATE TABLE `form43` (
 
 INSERT INTO `form43` (`id`, `jenis`, `tujuan`, `jenis_valuta`, `kualitas`, `jangka_waktu_mulai`, `jangka_waktu_jatuh_tempo`, `golongan_pemohon`, `hubungan_bank`, `status_pemohon`, `kategori_portofolio`, `negara_pemohon`, `lembaga_pemeringkat`, `peringkat_perusahaan`, `tanggal_pemeringkatan`, `jumlah`, `jenis_agunan`, `sifat_agunan`, `jenis_valuta_agunan`, `jangka_waktu_mulai_agunan`, `jangka_waktu_jatuh_tempo_agunan`, `nilai_agunan`, `tanggal_penilaian_agunan`, `penerbit_agunan`, `lembaga_pemeringkat_agunan`, `peringkat_penerbit_agunan`, `tanggal_pemeringkatan_agunan`, `nilai_agunan_diperhitungkan`, `cadangan_umum`, `cadangan_khusus`, `disetujui`, `id_laporan`) VALUES
 (1, 'Acceptance L/C', 'L/C dalam negeri (SKBDN)', 'Rupiah', 'Lancar', '2017-01-03', '2017-01-27', 'Pemerintah Kota', 'Tidak terkait dengan bank', 'Lainnya', 'Tagihan Kepada Pemerintah Indonesia', 'Indonesia', 'ICRA Indonesia', 30, '2014-01-03', 1, 'Tabungan', 'Non Eligible', 'Rupiah', '2017-01-03', '2017-01-27', 175000000, '2017-01-05', 'Pemerintah Pusat Republik Indonesia', 'ICRA Indonesia', 50, '2017-01-01', 100000000, 50000000, 0, 1, 1),
-(2, 'Negotiation L/C', 'L/C luar negeri', 'Valuta Asing', 'Lancar', '2017-02-07', '2017-02-25', 'Badan Urusan Logistik (BULOG)', 'Tidak terkait dengan bank', 'Perusahaan Induk', 'Tagihan Kepada Korporasi', 'Indonesia', 'Standard and Poor’s', 9, '2014-02-01', 1, 'Persediaan', 'Eligible', 'Valuta Asing', '2017-02-07', '2017-02-25', 100000000, '2017-02-08', 'Korporasi', 'Standard and Poor’s', 79, '2017-02-08', 50000000, 50000000, 0, 1, 2);
+(2, 'Negotiation L/C', 'L/C luar negeri', 'Valuta Asing', 'Lancar', '2017-02-07', '2017-02-25', 'Badan Urusan Logistik (BULOG)', 'Tidak terkait dengan bank', 'Perusahaan Induk', 'Tagihan Kepada Korporasi', 'Indonesia', 'Standard and Poor’s', 9, '2014-02-01', 1, 'Persediaan', 'Eligible', 'Valuta Asing', '2017-02-07', '2017-02-25', 100000000, '2017-02-08', 'Korporasi', 'Standard and Poor’s', 79, '2017-02-08', 50000000, 50000000, 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -265,8 +265,8 @@ CREATE TABLE `laporan` (
 --
 
 INSERT INTO `laporan` (`id`, `tahun_laporan`, `bulan_laporan`, `persentase`, `deleted`, `kode_bank`) VALUES
-(1, 2017, 1, 3, 0, '0090764'),
-(2, 2017, 2, 5, 0, '0090764'),
+(1, 2017, 1, 5, 0, '0090764'),
+(2, 2017, 2, 3, 0, '0090764'),
 (3, 2017, 1, 3, 0, '0022172');
 
 -- --------------------------------------------------------

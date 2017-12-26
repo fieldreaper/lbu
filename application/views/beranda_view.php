@@ -118,7 +118,7 @@
 														</td>
 														<td>
 															<a href="<?php echo site_url('beranda/detail_laporan/'.$laporan->id); ?>" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Detail </a>
-															<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#hapus_<?php echo $laporan->id; ?>"><i class="fa fa-trash-o"></i> Hapus </button>
+															<!-- <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#hapus_<?php echo $laporan->id; ?>"><i class="fa fa-trash-o"></i> Hapus </button> -->
 
 															<div id="hapus_<?php echo $laporan->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 																<div class="modal-dialog modal-sm">
