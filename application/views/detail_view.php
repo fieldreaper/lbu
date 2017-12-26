@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/fonts/css/font-awesome.min.css">
 </head>
 
-<body class="nav-md footer_fixed">
+<body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
 			<!-- Side menu -->
@@ -605,6 +605,75 @@
 									?>
 												</tbody>
 											</table>
+									<?php
+										}
+									?>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="x_panel">
+								<div class="x_title">
+									<h2>Komentar</h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="" data-toggle="modal" data-placement="right" data-target="#modal_komentar" title="Tambah Komentar"><i class="fa fa-plus"></i></a></li>
+									</ul>
+									<div id="modal_komentar" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+													<h4 class="modal-title">Tambah Komentar Laporan <?php echo $nama_laporan; ?></h4>
+												</div>
+												<form method="post" action="<?php echo site_url('beranda/tambah_komentar'); ?>">
+													<input type="hidden" name="akun_id" value="<?php echo $this->session->userdata('username'); ?>">
+													<input type="hidden" name="laporan_id" value="<?php echo $laporan_id; ?>">
+													<div class="modal-body">
+														<div class="form-group">
+															<textarea name="komentar" class="form-control" placeholder="Tulis komentar ..."></textarea>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+														<button type="submit" class="btn btn-primary">Tambah</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content">
+									<?php
+										if(count($daftar_komentar) == 0) {
+											echo "Belum ada komentar";
+										} else {
+									?>
+											<ul class="list-unstyled timeline">
+									<?php
+												foreach($daftar_komentar as $komentar) {
+									?>
+													<li>
+														<div class="block">
+															<div class="block_content">
+																<h2 class="title">
+																	<a><?php echo $komentar->role; ?></a>
+																</h2>
+																<div class="byline">
+																	<span><?php echo date("d M Y H:i", strtotime($komentar->tanggal)); ?></span>
+																</div>
+																<p class="excerpt">
+																	<?php echo $komentar->isi_komentar; ?>
+																</p>
+															</div>
+														</div>
+													</li>
+									<?php
+												}
+									?>
+											</ul>
 									<?php
 										}
 									?>

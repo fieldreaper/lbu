@@ -7,6 +7,7 @@ class Beranda extends CI_Controller {
 		parent::__construct();
 		$this->load->model('laporan_model');
 		$this->load->model('form_model');
+		$this->load->model('komentar_model');
 	}
 
 	public function index() {
@@ -40,6 +41,7 @@ class Beranda extends CI_Controller {
 			$data['form19'] = $this->form_model->select_all_form19($id)->row();
 			$data['form39'] = $this->form_model->select_all_form39($id)->row();
 			$data['form43'] = $this->form_model->select_all_form43($id)->row();
+			$data['daftar_komentar'] = $this->komentar_model->select_all($id)->result();
 			$data['laporan_id'] = $id;
 			$data['nama_laporan'] = $nama_laporan;
 			$this->load->view('detail_view', $data);
@@ -69,6 +71,21 @@ class Beranda extends CI_Controller {
 			$this->form_model->validasi_form43($form_id, $kode_validasi);
 			$this->laporan_model->persentase($laporan_id, $kode_validasi);
 		}
+		redirect(site_url('beranda/detail_laporan/'.$laporan_id));
+	}
+
+	public function tambah_komentar() {
+		$akun_id = $this->input->post('akun_id');
+		$laporan_id = $this->input->post('laporan_id');
+		$isi_komentar = $this->input->post('komentar');
+		$data = array(
+			'id_komentar'=>null,
+			'isi_komentar'=>$isi_komentar,
+			'id_akun'=>$akun_id,
+			'id_laporan'=>$laporan_id
+		);
+
+		$this->komentar_model->tambah_komentar($data);
 		redirect(site_url('beranda/detail_laporan/'.$laporan_id));
 	}
 

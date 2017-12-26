@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2017 at 02:10 PM
+-- Generation Time: Dec 26, 2017 at 05:12 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -223,6 +223,31 @@ INSERT INTO `form43` (`id`, `jenis`, `tujuan`, `jenis_valuta`, `kualitas`, `jang
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `komentar`
+--
+
+CREATE TABLE `komentar` (
+  `id_komentar` int(7) NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isi_komentar` text NOT NULL,
+  `id_akun` char(10) NOT NULL,
+  `id_laporan` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `komentar`
+--
+
+INSERT INTO `komentar` (`id_komentar`, `tanggal`, `isi_komentar`, `id_akun`, `id_laporan`) VALUES
+(1, '2017-12-26 21:44:31', 'Periksa kembali untuk form 15, jenis aset yang dimasukkan salah', '0090764002', 1),
+(2, '2017-12-26 21:44:31', 'Periksa kembali untuk form 19, nilai jumlah perolehan yang dimasukkan salah', '0090764002', 2),
+(3, '2017-12-26 21:47:34', 'Baik pak, segera saya perbaiki ..', '0090764001', 2),
+(13, '2017-12-26 23:10:24', 'jangka waktu mulai pada form 43 salah', '0090764002', 2),
+(14, '2017-12-26 23:11:33', 'nilai jumlah pada form 39 salah', '0090764002', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `laporan`
 --
 
@@ -317,6 +342,14 @@ ALTER TABLE `form43`
   ADD KEY `id_laporan` (`id_laporan`);
 
 --
+-- Indexes for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id_komentar`),
+  ADD KEY `id_akun` (`id_akun`),
+  ADD KEY `id_laporan` (`id_laporan`);
+
+--
 -- Indexes for table `laporan`
 --
 ALTER TABLE `laporan`
@@ -359,6 +392,11 @@ ALTER TABLE `form39`
 --
 ALTER TABLE `form43`
   MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id_komentar` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `laporan`
 --
@@ -409,6 +447,13 @@ ALTER TABLE `form39`
 --
 ALTER TABLE `form43`
   ADD CONSTRAINT `fk_form43_laporan` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD CONSTRAINT `fk_komentar_akun` FOREIGN KEY (`id_akun`) REFERENCES `akun` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_komentar_laporan` FOREIGN KEY (`id_laporan`) REFERENCES `laporan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `laporan`
